@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="translation"><span id="rotation"></span></div>
+    <script>
+      // Check if animationWorklet is supported
+      if (!CSS.animationWorklet) {
+        document.body.innerHTML(
+          "AnimationWorklet not supported by this browser"
+        );
+      }
+
+      // Set up animationWorklet
+      async function init() {
+        await CSS.animationWorklet.addModule("./gaussian.js");
+
+        new WorkletAnimation(
+          "gaussian",
+          new KeyframeEffect(
+            document.querySelector("#rotation"),
+            [
+              {
+                transform: "rotateZ(0deg) "
+              },
+              {
+                transform: "rotateZ(-280deg)"
+              }
+            ],
+            {
+              duration: 3000,
+              iterations: Number.POSITIVE_INFINITY
+            }
+          ),
+          document.timeline,
+          {
+            duration: 3000,
+            distance: 750
+          }
+        ).play();
+
+        new WorkletAnimation(
+          "gaussian",
+          new KeyframeEffect(
+            document.querySelector("#translation"),
+            [
+              {
+                transform: "translateX(0) "
+              },
+              {
+                transform: "translateX(750px)"
+              }
+            ],
+            {
+              duration: 3000,
+              iterations: Number.POSITIVE_INFINITY
+            }
+          ),
+          document.timeline,
+          {
+            duration: 3000,
+            distance: 750
+          }
+        ).play();
+      }
+      init();
+    </script>
+  </body>
+</html>

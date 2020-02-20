@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div><img src="https://dummyimage.com/310x200" /></div>
+  <div><img src="https://dummyimage.com/320x400" /></div>
+  <div><img src="https://dummyimage.com/330x200" /></div>
+  <div><img src="https://dummyimage.com/340x400" /></div>
+  <div><img src="https://dummyimage.com/350x220" /></div>
+  <div><img src="https://dummyimage.com/360x400" /></div>
+  <div><img src="https://dummyimage.com/370x400" /></div>
+  <div><img src="https://dummyimage.com/380x280" /></div>
+  <div><img src="https://dummyimage.com/390x600" /></div>
+  <div><img src="https://dummyimage.com/310x400" /></div>
+  <div><img src="https://dummyimage.com/320x250" /></div>
+  <div><img src="https://dummyimage.com/330x460" /></div>
+  <div><img src="https://dummyimage.com/340x270" /></div>
+  <div><img src="https://dummyimage.com/300x410" /></div>
+  <div><img src="https://dummyimage.com/300x280" /></div>
+  <div><img src="https://dummyimage.com/300x600" /></div>
+  <div><img src="https://dummyimage.com/300x400" /></div>
+  <div><img src="https://dummyimage.com/300x250" /></div>
+  <div><img src="https://dummyimage.com/300x420" /></div>
+  <div><img src="https://dummyimage.com/300x210" /></div>
+  <div><img src="https://dummyimage.com/300x400" /></div>
+  <div><img src="https://dummyimage.com/300x280" /></div>
+  <div><img src="https://dummyimage.com/300x260" /></div>
+  <div><img src="https://dummyimage.com/300x230" /></div>
+  <div><img src="https://dummyimage.com/300x470" /></div>
+  <div><img src="https://dummyimage.com/300x400" /></div>
+
+  <div><img src="https://dummyimage.com/300x280" /></div>
+  <div><img src="https://dummyimage.com/300x280" /></div>
+</body>
+<script>
+  if (!CSS.layoutWorklet) {
+    document.body.innerHTML("LayoutWorklet not supported by this browser");
+  }
+
+  /* Re-used code from https://github.com/GoogleChromeLabs/houdini-samples/blob/masterr/layout-worklet/masonry/index.html */
+  async function init() {
+    await CSS.layoutWorklet.addModule(
+      "https://cdn.jsdelivr.net/gh/GoogleChromeLabs/houdini-samples/layout-worklet/masonry/masonry.js"
+    );
+  }
+  init();
+</script>

@@ -1,0 +1,13 @@
+body {
+  display: layout(masonry);
+  --padding: 10;
+  --columns: 4;
+}
+
+img {
+  width: 100%;
+  display: block;
+  max-width: 100%;
+}
+
+/* 506 - 915 */

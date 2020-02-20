@@ -1,0 +1,22 @@
+body {
+  position: relative;
+  padding: 2em;
+}
+div {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  position: relative;
+  text-align: center;
+}
+
+span {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 3px;
+  margin: 0 auto;
+  background-color: black;
+  transform-origin: center center;
+}

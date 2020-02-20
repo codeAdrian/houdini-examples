@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="example" class="background">
+    Same worklet, different use-case!
+  </div>
+
+  <script>
+    if (!CSS.paintWorklet) {
+      document.body.innerHTML("PaintWorklet not supported by this browser");
+    }
+
+    /* Re-used code from https://github.com/GoogleChromeLabs/houdini-samples/blob/master/paint-worklet/ripple/index.html */
+    async function init() {
+      await CSS.paintWorklet.addModule(
+        "https://cdn.jsdelivr.net/gh/GoogleChromeLabs/houdini-samples/paint-worklet/ripple/paintworklet.js"
+      );
+
+      const example = document.querySelector("#example");
+      let start = performance.now();
+      let x, y;
+
+      document.querySelector("#example").addEventListener("click", evt => {
+        example.classList.add("animating");
+        [x, y] = [evt.clientX, evt.clientY];
+        start = performance.now();
+        requestAnimationFrame(function raf(now) {
+          const count = Math.floor(now - start);
+          example.style.cssText = `--ripple-x: ${x}; --ripple-y: ${y}; --animation-tick: ${count};`;
+          if (count > 1000) {
+            example.classList.remove("animating");
+            example.style.cssText = `--animation-tick: 0`;
+            return;
+          }
+          requestAnimationFrame(raf);
+        });
+      });
+    }
+    init();
+  </script>
+</body>
