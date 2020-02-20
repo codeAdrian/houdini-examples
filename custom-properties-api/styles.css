@@ -1,0 +1,15 @@
+.box {
+  width: 20rem;
+  height: 20rem;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 1) 0%,
+    var(--box__color) var(--box__gradient--position)
+  );
+  transition: --box__color 0.5s ease, --box__gradient--position 1s 0.5s ease;
+}
+
+.box:hover {
+  --box__color: #baebae;
+  --box__gradient--position: 0%;
+}
